@@ -44,7 +44,7 @@ impl GlslExtension {
             },
             os = match platform {
                 zed::Os::Mac => "macos",
-                zed::Os::Linux => "linux-musl",
+                zed::Os::Linux | zed::Os::Freebsd => "linux-musl",
                 zed::Os::Windows => "windows",
             }
         );

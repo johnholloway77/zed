@@ -41,7 +41,7 @@ impl TestExtension {
         );
 
         let command = match platform {
-            zed::Os::Linux | zed::Os::Mac => Command::new("echo"),
+            zed::Os::Linux | zed::Os::Mac | zed::Os::Freebsd => Command::new("echo"),
             zed::Os::Windows => Command::new("cmd").args(["/C", "echo"]),
         };
         let output = command.arg("hello from a child process!").output()?;
@@ -88,7 +88,7 @@ impl TestExtension {
             },
             os = match platform {
                 zed::Os::Mac => "apple-darwin",
-                zed::Os::Linux => "unknown-linux-musl",
+                zed::Os::Linux | zed::Os::Freebsd => "unknown-linux-musl",
                 zed::Os::Windows => "pc-windows-msvc",
             },
         );

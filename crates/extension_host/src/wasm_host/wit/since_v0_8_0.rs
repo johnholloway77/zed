@@ -837,6 +837,7 @@ impl platform::Host for WasmState {
                 "macos" => platform::Os::Mac,
                 "linux" => platform::Os::Linux,
                 "windows" => platform::Os::Windows,
+                "freebsd" => platform::Os::Freebsd,
                 _ => panic!("unsupported os"),
             },
             match env::consts::ARCH {
